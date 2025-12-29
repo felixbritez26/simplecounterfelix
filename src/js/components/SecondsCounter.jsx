@@ -7,7 +7,7 @@ export default function SecondsCounter({ seconds = 0 }) {
   const intervalRef = useRef(null);
   const alertShown = useRef(false);
 
-  // Iniciar contador
+  // start count
   const startCounter = () => {
     if (intervalRef.current) return;
 
@@ -16,7 +16,7 @@ export default function SecondsCounter({ seconds = 0 }) {
     }, 1000);
   };
 
-  // Pausar
+  // Pause
   const pauseCounter = () => {
     clearInterval(intervalRef.current);
     intervalRef.current = null;
@@ -29,7 +29,7 @@ export default function SecondsCounter({ seconds = 0 }) {
     startCounter();
   };
 
-  // Resetear
+  // Reset
   const resetCounter = () => {
     pauseCounter();
     setCount(0);
@@ -49,7 +49,7 @@ export default function SecondsCounter({ seconds = 0 }) {
       count === Number(targetTime) &&
       !alertShown.current
     ) {
-      alert(`⏰ ¡Se alcanzó el tiempo objetivo: ${targetTime} segundos!`);
+      alert(`⏰ ¡The target time was achieved.: ${targetTime} seconds!`);
       alertShown.current = true;
     }
   }, [count, targetTime]);
